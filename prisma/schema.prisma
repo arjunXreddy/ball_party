@@ -13,9 +13,9 @@ datasource db {
 }
 
 model Refral {
-  id    String @id @default(cuid())
-  code  String @unique
-  count Int    @default(0)
+  id              String           @id @default(cuid())
+  code            String           @unique
+  count           Int              @default(0)
   userfromrefrals userfromrefral[]
 }
 
@@ -42,4 +42,12 @@ model freeUser {
   name    String
   email   String @unique
   phoneNo String @unique
+}
+
+model PendingUser {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phoneNo   String   @unique
+  createdAt DateTime @default(now())
 }
